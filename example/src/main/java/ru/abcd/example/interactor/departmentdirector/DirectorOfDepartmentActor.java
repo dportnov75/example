@@ -28,6 +28,10 @@ import ru.abcd.example.interactor.Teacher;
 @Transactional
 class DirectorOfDepartmentActor implements DirectorOfDepartment {
 
+	/**
+	 * Возвращает каждый раз новый экземпляр
+	 * @return
+	 */
 	@Lookup
 	public SchoolAdapter getSchoolAdapter() {
 		return null;

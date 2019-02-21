@@ -21,17 +21,16 @@ public interface SchoolAdapter {
 	 * @param id идентификатор
 	 * @return Модель школы, если нет, то {@literal Optional#empty()}
 	 */
-	public Optional<School> findById(int id);
+	public Optional<School> findByNumber(int id);
 
 	/**
 	 * Метод создает новую школу
 	 * 
-	 * @param number Номер школы
-	 * @return Модель созданной школы
+	 * @param school Школа
 	 * @throws IllegalParameterException Неверный номер школы
 	 * @throws CreateException           Не удалось сохранить в репозитории
 	 */
-	public School add(int number) throws IllegalParameterException, CreateException;
+	public School add(School school) throws IllegalParameterException, CreateException;
 	
 	/**
 	 * Метод возвращает коллекцию учителей школы
@@ -49,4 +48,17 @@ public interface SchoolAdapter {
 	 */
 	public Collection<School> getAll(int page, int recordCount) throws IllegalParameterException ;
 	
+	/**
+	 * метод удаляет учителя из школы
+	 * @param schoolNumber Номер школы
+	 * @param teacherId Идентификатор учителя
+	 */
+	public void deleteTeacher(int schoolNumber, int teacherId);
+	
+	/**
+	 * Метод добавляет учителя в школу
+	 * @param schoolNumber Номер школы
+	 * @param teacherId Идентификатор учителя
+	 */
+	public void addTeacher(int schoolNumber, int teacherId);
 }

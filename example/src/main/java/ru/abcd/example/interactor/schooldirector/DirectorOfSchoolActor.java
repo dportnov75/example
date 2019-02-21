@@ -9,7 +9,6 @@ import ru.abcd.example.common.exceptions.IllegalParameterException;
 import ru.abcd.example.common.exceptions.Precondition;
 import ru.abcd.example.common.exceptions.UpdateException;
 import ru.abcd.example.interactor.SchoolAdapter;
-import ru.abcd.example.interactor.Teacher;
 
 /**
  * Реализация функционала акторов типа 'директор школы'
@@ -19,7 +18,7 @@ import ru.abcd.example.interactor.Teacher;
  */
 @Service
 @Transactional
-class DirectorOfSchoolImpl implements DirectorOfSchool {
+class DirectorOfSchoolActor implements DirectorOfSchool {
 
 	@Lookup
 	private SchoolAdapter getSchoolAdapter() {
@@ -34,13 +33,15 @@ class DirectorOfSchoolImpl implements DirectorOfSchool {
 		Precondition.ifTrueThrow(schoolNumber < 1 || schoolNumber > 9999,
 				"Недопустимый номер школы. Должен лежать в пределах 1-9999", ExceptionCodes.INCORRECT_PARAMETER,
 				IllegalParameterException.class);
-		
-
+		getSchoolAdapter().deleteTeacher(schoolNumber, id);
 	}
 
 	@Override
-	public void recruitTeacher(int schoolNumber, Teacher teacher) throws IllegalParameterException, UpdateException {
-
+	public void recruitTeacher(int schoolNumber, int teacherId) throws IllegalParameterException, UpdateException {
+		Precondition.ifTrueThrow(schoolNumber < 1 || schoolNumber > 9999,
+				"Недопустимый номер школы. Должен лежать в пределах 1-9999", ExceptionCodes.INCORRECT_PARAMETER,
+				IllegalParameterException.class);
+		getSchoolAdapter().addTeacher(schoolNumber, teacherId);
 	}
 
 }

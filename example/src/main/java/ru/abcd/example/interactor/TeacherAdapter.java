@@ -7,4 +7,5 @@ package ru.abcd.example.interactor;
  */
 public interface TeacherAdapter extends PersonAdapter<Teacher> {
 
+	
 }

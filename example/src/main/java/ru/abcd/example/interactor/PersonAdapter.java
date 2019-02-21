@@ -10,15 +10,16 @@ import ru.abcd.example.common.exceptions.UpdateException;
  * Интерфейс доступа к сущностям {@link ru.abcd.example.interactor.Person}
  * @author dmitry
  *
+ * @param <Dto> Модель конкретной персоны
  */
-interface PersonAdapter<T extends Person> {
+public interface PersonAdapter<Dto extends Person> {
 
 	/**
 	 * Метод возвращает персону по идентификатору
 	 * @param id Идентификатор
 	 * @return Персоны, или {@literal Optional#empty(), если нет
 	 */
-	public Optional<T> findById(int id);
+	public Optional<Dto> findById(int id);
 	
 	/**
 	 * Добавляет новую персону в систему
@@ -27,7 +28,7 @@ interface PersonAdapter<T extends Person> {
 	 * @throws IllegalParameterException Персона {@code null }, или содержит неверные поля
 	 * @throws CreateException Не удалось создать
 	 */
-	public T add(T person) throws IllegalParameterException, CreateException;
+	public Dto add(Dto person) throws IllegalParameterException, CreateException;
 	
 	/**
 	 * Редактирует персону
@@ -35,5 +36,6 @@ interface PersonAdapter<T extends Person> {
 	 * @throws IllegalParameterException  Персона {@code null }, или содержит неверные поля
 	 * @throws UpdateException Не удалось сохранить
 	 */
-	public void update(T person) throws IllegalParameterException, UpdateException;
+	public void update(Dto person) throws IllegalParameterException, UpdateException;
+	
 }

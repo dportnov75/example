@@ -22,6 +22,7 @@ import io.swagger.annotations.ApiResponses;
 import ru.abcd.example.common.aop.AnnotationLogMethodArround;
 import ru.abcd.example.controllers.ResponseError;
 import ru.abcd.example.interactor.School;
+import ru.abcd.example.interactor.Student;
 import ru.abcd.example.interactor.Teacher;
 
 /**
@@ -37,7 +38,7 @@ import ru.abcd.example.interactor.Teacher;
 @RequestMapping("department/director")
 @ApiResponses({ @ApiResponse(code = 200, message = "Успешно"),
 		@ApiResponse(code = 500, message = "Ошибка при вызове метода сервера", response = ResponseError.class) })
-class DirectorOfDepartment {
+class DirectorOfDepartment implements ru.abcd.example.interactor.departmentdirector.DirectorOfDepartment {
 
 	@Autowired
 	private ru.abcd.example.interactor.departmentdirector.DirectorOfDepartment service;
@@ -82,6 +83,18 @@ class DirectorOfDepartment {
 	@PostMapping("/teachers")
 	public Teacher createTeacher(@RequestBody Teacher teacher) {
 		return service.createTeacher(teacher);
+	}
+	
+	/**
+	 * Добавление нового ученика
+	 * @param teacher ученик
+	 * @return
+	 */
+	@AnnotationLogMethodArround
+	@ApiOperation("Добавление нового ученика")
+	@PostMapping("/students")
+	public Student createStudent(@RequestBody Student student) {
+		return service.createStudent(student);
 	}
 
 }

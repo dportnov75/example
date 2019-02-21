@@ -1,11 +1,11 @@
-package ru.abcd.example.interactor;
+package ru.abcd.example.interactor.departmentdirector;
 
 import java.util.Collection;
 
-import ru.abcd.example.exceptions.CreateException;
-import ru.abcd.example.exceptions.IllegalParameterException;
-import ru.abcd.example.interactor.dto.School;
-import ru.abcd.example.interactor.dto.Teacher;
+import ru.abcd.example.common.exceptions.CreateException;
+import ru.abcd.example.common.exceptions.IllegalParameterException;
+import ru.abcd.example.interactor.School;
+import ru.abcd.example.interactor.Teacher;
 
 /**
  * Интерфейс реализации функционала, свойственного директору департамента образования

@@ -1,4 +1,4 @@
-package ru.abcd.example.exceptions;
+package ru.abcd.example.common.exceptions;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -11,9 +11,6 @@ import java.lang.reflect.InvocationTargetException;
  */
 public final class Precondition {
 
-	/**
-	 * Запрещаем создавать экземпляр
-	 */
 	private Precondition() {
 
 	}

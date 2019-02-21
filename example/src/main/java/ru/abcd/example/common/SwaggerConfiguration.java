@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ru.abcd.example;
+package ru.abcd.example.common;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,20 +22,20 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
-//http://localhost:9999/school/swagger-ui.html#/
+//http://localhost:9999/example/swagger-ui.html#/
 public class SwaggerConfiguration {
 
 	@Bean
 	public Docket api() {
-		return new Docket(DocumentationType.SWAGGER_2).useDefaultResponseMessages(false).groupName("Пример")
-				.apiInfo(apiInfo()).select().apis(RequestHandlerSelectors.basePackage("ru.abcd.example.controllers")).paths(PathSelectors.any()).build();
+		return new Docket(DocumentationType.SWAGGER_2).useDefaultResponseMessages(false).groupName("Пример приложения")
+				.apiInfo(apiInfo()).select().apis(RequestHandlerSelectors.basePackage("ru.abcd.example.controllers"))
+				.paths(PathSelectors.any()).build();
 
 	}
 
 	private ApiInfo apiInfo() {
-		return new ApiInfoBuilder().title("").description("Описание всех интерфейсов")
-				.termsOfServiceUrl("http://yandex.ru").version("1.0.1").build();
+		return new ApiInfoBuilder().title("Система управления персоналом школ").description("Описание всех интерфейсов")
+				.termsOfServiceUrl("http://yandex.ru").version("1.0.0").build();
 	}
-	
-	
+
 }

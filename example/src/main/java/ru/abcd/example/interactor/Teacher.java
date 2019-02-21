@@ -1,4 +1,4 @@
-package ru.abcd.example.interactor.dto;
+package ru.abcd.example.interactor;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

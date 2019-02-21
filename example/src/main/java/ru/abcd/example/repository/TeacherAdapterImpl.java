@@ -5,23 +5,23 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ru.abcd.example.exceptions.CreateException;
-import ru.abcd.example.exceptions.ExceptionCodes;
-import ru.abcd.example.exceptions.IllegalParameterException;
-import ru.abcd.example.exceptions.Precondition;
-import ru.abcd.example.exceptions.UpdateException;
+import ru.abcd.example.common.exceptions.CreateException;
+import ru.abcd.example.common.exceptions.ExceptionCodes;
+import ru.abcd.example.common.exceptions.IllegalParameterException;
+import ru.abcd.example.common.exceptions.Precondition;
+import ru.abcd.example.common.exceptions.UpdateException;
+import ru.abcd.example.interactor.Teacher;
 import ru.abcd.example.interactor.TeacherAdapter;
-import ru.abcd.example.interactor.dto.Teacher;
 
 /**
  * Реализация адаптера для моделей
- * {@link ru.abcd.example.interactor.dto.Teacher}
+ * {@link ru.abcd.example.interactor.Teacher}
  * 
  * @author dmitry
  *
  */
 @Service
-public class TeacherAdapterImpl implements TeacherAdapter {
+class TeacherAdapterImpl implements TeacherAdapter {
 
 	@Autowired
 	private TeachersRepository repository;

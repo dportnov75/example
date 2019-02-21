@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import lombok.extern.slf4j.Slf4j;
-import ru.abcd.example.exceptions.BaseException;
+import ru.abcd.example.common.exceptions.BaseException;
 
 /**
  * Единый обработчик исключений в слое фасадов
@@ -22,7 +22,7 @@ public class ExceptionsHandler {
 
 	/**
 	 * Обработка пользовательских исключений, т.е. всех, которые произошли от
-	 * {@link ru.abcd.example.exceptions.BaseException}
+	 * {@link ru.abcd.example.common.exceptions.BaseException}
 	 * 
 	 * @param request
 	 * @param ex

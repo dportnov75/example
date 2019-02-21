@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ru.abcd.example.exceptions;
+package ru.abcd.example.common.exceptions;
 
 
 /**

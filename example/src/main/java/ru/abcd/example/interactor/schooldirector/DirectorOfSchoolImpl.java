@@ -1,14 +1,15 @@
-package ru.abcd.example.interactor;
+package ru.abcd.example.interactor.schooldirector;
 
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ru.abcd.example.exceptions.ExceptionCodes;
-import ru.abcd.example.exceptions.IllegalParameterException;
-import ru.abcd.example.exceptions.Precondition;
-import ru.abcd.example.exceptions.UpdateException;
-import ru.abcd.example.interactor.dto.Teacher;
+import ru.abcd.example.common.exceptions.ExceptionCodes;
+import ru.abcd.example.common.exceptions.IllegalParameterException;
+import ru.abcd.example.common.exceptions.Precondition;
+import ru.abcd.example.common.exceptions.UpdateException;
+import ru.abcd.example.interactor.SchoolAdapter;
+import ru.abcd.example.interactor.Teacher;
 
 /**
  * Реализация функционала акторов типа 'директор школы'

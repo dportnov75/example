@@ -1,4 +1,4 @@
-package ru.abcd.example.controllers;
+package ru.abcd.example.controllers.schooldirector;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import ru.abcd.example.controllers.ResponseError;
 
 /**
  * Контроллер доступа к функционалу директора школы

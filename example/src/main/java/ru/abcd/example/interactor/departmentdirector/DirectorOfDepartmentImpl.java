@@ -1,4 +1,4 @@
-package ru.abcd.example.interactor;
+package ru.abcd.example.interactor.departmentdirector;
 
 import java.util.Collection;
 
@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import ru.abcd.example.exceptions.CreateException;
-import ru.abcd.example.exceptions.ExceptionCodes;
-import ru.abcd.example.exceptions.IllegalParameterException;
-import ru.abcd.example.exceptions.Precondition;
-import ru.abcd.example.interactor.dto.School;
-import ru.abcd.example.interactor.dto.Teacher;
+import ru.abcd.example.common.exceptions.CreateException;
+import ru.abcd.example.common.exceptions.ExceptionCodes;
+import ru.abcd.example.common.exceptions.IllegalParameterException;
+import ru.abcd.example.common.exceptions.Precondition;
+import ru.abcd.example.interactor.School;
+import ru.abcd.example.interactor.SchoolAdapter;
+import ru.abcd.example.interactor.Teacher;
 
 /**
  * Реализация функционала акторов типа 'директора департамента образования'
@@ -22,7 +23,7 @@ import ru.abcd.example.interactor.dto.Teacher;
  */
 @Service
 @Transactional
-public class DirectorOfDepartmentImpl implements DirectorOfDepartment {
+class DirectorOfDepartmentImpl implements DirectorOfDepartment {
 
 	@Autowired
 	private SchoolAdapter adapter;

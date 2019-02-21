@@ -1,4 +1,4 @@
-package ru.abcd.example.exceptions;
+package ru.abcd.example.common.exceptions;
 
 /**
  * Исключение генерится при неудачном обновлении сущности

@@ -12,6 +12,6 @@ package ru.abcd.example.repository;
  */
 @org.mapstruct.Mapper(componentModel = "spring")
 interface MapperTeacher
-		extends MapperPerson<ru.abcd.example.interactor.dto.Teacher, ru.abcd.example.repository.Teacher> {
+		extends MapperPerson<ru.abcd.example.interactor.Teacher, ru.abcd.example.repository.Teacher> {
 
 }

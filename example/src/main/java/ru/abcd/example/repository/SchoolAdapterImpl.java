@@ -10,14 +10,14 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import ru.abcd.example.exceptions.CreateException;
-import ru.abcd.example.exceptions.IllegalParameterException;
+import ru.abcd.example.common.exceptions.CreateException;
+import ru.abcd.example.common.exceptions.IllegalParameterException;
+import ru.abcd.example.interactor.School;
 import ru.abcd.example.interactor.SchoolAdapter;
-import ru.abcd.example.interactor.dto.School;
-import ru.abcd.example.interactor.dto.Teacher;
+import ru.abcd.example.interactor.Teacher;
 
 /**
- * Реализация адаптера для моделей {@link ru.abcd.example.interactor.dto.School}
+ * Реализация адаптера для моделей {@link ru.abcd.example.interactor.School}
  * 
  * @author dmitry
  *

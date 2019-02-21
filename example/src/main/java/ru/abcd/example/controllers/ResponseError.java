@@ -12,7 +12,7 @@ import lombok.experimental.SuperBuilder;
  */
 @SuperBuilder
 @Value
-class ResponseError {
+public class ResponseError {
 
 	/**
 	 * Код ошибки

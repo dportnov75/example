@@ -1,8 +1,8 @@
-package ru.abcd.example.interactor;
+package ru.abcd.example.interactor.schooldirector;
 
-import ru.abcd.example.exceptions.IllegalParameterException;
-import ru.abcd.example.exceptions.UpdateException;
-import ru.abcd.example.interactor.dto.Teacher;
+import ru.abcd.example.common.exceptions.IllegalParameterException;
+import ru.abcd.example.common.exceptions.UpdateException;
+import ru.abcd.example.interactor.Teacher;
 
 /**
  * Интерфейс реализации функционала, свойственного директорам школ
@@ -17,7 +17,7 @@ public interface DirectorOfSchool {
 	 * 
 	 * @param schoolNumber Номер школы
 	 * @param id       Идентификатор учителя
-	 * @throws UpdateException Невозможно выролнить операцию
+	 * @throws UpdateException Невозможно выполнить операцию
 	 */
 	public void dismissTeacher(int schoolNumber, int id) throws UpdateException;
 

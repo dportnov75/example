@@ -1,6 +1,6 @@
 package ru.abcd.example.repository;
 
-import ru.abcd.example.interactor.dto.School;
+import ru.abcd.example.interactor.School;
 
 /**
  * Интерфейс преобразования моделей школ

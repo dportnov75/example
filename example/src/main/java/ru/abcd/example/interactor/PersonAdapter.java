@@ -2,13 +2,12 @@ package ru.abcd.example.interactor;
 
 import java.util.Optional;
 
-import ru.abcd.example.exceptions.CreateException;
-import ru.abcd.example.exceptions.IllegalParameterException;
-import ru.abcd.example.exceptions.UpdateException;
-import ru.abcd.example.interactor.dto.Person;
+import ru.abcd.example.common.exceptions.CreateException;
+import ru.abcd.example.common.exceptions.IllegalParameterException;
+import ru.abcd.example.common.exceptions.UpdateException;
 
 /**
- * Интерфейс доступа к сущностям {@link ru.abcd.example.interactor.dto.Person}
+ * Интерфейс доступа к сущностям {@link ru.abcd.example.interactor.Person}
  * @author dmitry
  *
  */

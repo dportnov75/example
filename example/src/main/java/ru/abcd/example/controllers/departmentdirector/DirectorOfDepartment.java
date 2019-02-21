@@ -1,4 +1,4 @@
-package ru.abcd.example.controllers;
+package ru.abcd.example.controllers.departmentdirector;
 
 import java.util.Collection;
 
@@ -15,12 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import ru.abcd.example.aop.AnnotationLogMethodArround;
-import ru.abcd.example.interactor.dto.School;
-import ru.abcd.example.interactor.dto.Teacher;
+import ru.abcd.example.common.aop.AnnotationLogMethodArround;
+import ru.abcd.example.controllers.ResponseError;
+import ru.abcd.example.interactor.School;
+import ru.abcd.example.interactor.Teacher;
 
 /**
  * Контроллер доступа к функционалу директора департамента образования
@@ -30,6 +32,7 @@ import ru.abcd.example.interactor.dto.Teacher;
  */
 @CrossOrigin
 @RestController
+@Api(tags="Директора департамента образования")
 @ResponseStatus(code = HttpStatus.OK)
 @RequestMapping("department/director")
 @ApiResponses({ @ApiResponse(code = 200, message = "Успешно"),
@@ -37,7 +40,7 @@ import ru.abcd.example.interactor.dto.Teacher;
 class DirectorOfDepartment {
 
 	@Autowired
-	private ru.abcd.example.interactor.DirectorOfDepartment service;
+	private ru.abcd.example.interactor.departmentdirector.DirectorOfDepartment service;
 
 	/**
 	 * Добавление новой школы
@@ -60,7 +63,7 @@ class DirectorOfDepartment {
 	 * @param recordCount Кол-во записей на странице
 	 * @return Коллекция школ
 	 */
-	@JsonView(ru.abcd.example.interactor.dto.School.ShortView.class)
+	@JsonView(ru.abcd.example.interactor.School.ShortView.class)
 	@AnnotationLogMethodArround
 	@ApiOperation("Чтение всех школ постранично")
 	@GetMapping("/schools/all")

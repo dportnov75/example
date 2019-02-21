@@ -3,14 +3,12 @@ package ru.abcd.example.interactor;
 import java.util.Collection;
 import java.util.Optional;
 
-import ru.abcd.example.exceptions.CreateException;
-import ru.abcd.example.exceptions.IllegalParameterException;
-import ru.abcd.example.interactor.dto.School;
-import ru.abcd.example.interactor.dto.Teacher;
+import ru.abcd.example.common.exceptions.CreateException;
+import ru.abcd.example.common.exceptions.IllegalParameterException;
 
 /**
  * Интерфейс доступа к сущностям 
- * {@link ru.abcd.example.interactor.dto.School}
+ * {@link ru.abcd.example.interactor.School}
  * 
  * @author dmitry
  *

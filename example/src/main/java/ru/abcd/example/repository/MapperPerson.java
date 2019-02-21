@@ -11,7 +11,7 @@ package ru.abcd.example.repository;
  * @param <D> Модель доменного слоя
  * @param <E> Сущность репозитария
  */
-interface MapperPerson<D extends ru.abcd.example.interactor.dto.Person, E extends Person> {
+interface MapperPerson<D extends ru.abcd.example.interactor.Person, E extends Person> {
 
 	/**
 	 * Преобразует сущность в модель доменного слоя

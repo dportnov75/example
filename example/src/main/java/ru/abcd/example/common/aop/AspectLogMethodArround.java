@@ -1,4 +1,4 @@
-package ru.abcd.example.aop;
+package ru.abcd.example.common.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 /**
  * Класс определяет реализацию аспекта, привязанного к методу аннотированному
- * {@link ru.abcd.example.aop.AnnotationLogMethodArround}
+ * {@link ru.abcd.example.common.aop.AnnotationLogMethodArround}
  * 
  * @author dmitry
  *
@@ -20,7 +20,7 @@ public class AspectLogMethodArround {
 
 	/**
 	 * Точка среза вокруг методов, помеченных аннотацией
-	 * {@link ru.abcd.example.aop.AnnotationLogMethodArround}. Выполняет
+	 * {@link ru.abcd.example.common.aop.AnnotationLogMethodArround}. Выполняет
 	 * логгирование времени выполнения метода
 	 * 
 	 * @param joinPoint Точка среза

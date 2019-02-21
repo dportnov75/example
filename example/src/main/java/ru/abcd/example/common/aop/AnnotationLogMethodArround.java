@@ -1,4 +1,4 @@
-package ru.abcd.example.aop;
+package ru.abcd.example.common.aop;
 
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;

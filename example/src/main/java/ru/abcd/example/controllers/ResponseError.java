@@ -17,7 +17,7 @@ public class ResponseError {
 	/**
 	 * Код ошибки
 	 */
-	int errorCode;
+	int сode;
 	
 	/**
 	 * Сообщение

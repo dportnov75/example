@@ -32,7 +32,7 @@ public class ExceptionsHandler {
 	@ExceptionHandler(BaseException.class)
 	public ResponseError handleCustom(HttpServletRequest request, BaseException ex) {
 		log.error("Исключение при вызове метода: " + request.getRequestURI() + ". " + ex.getMessage(), ex);
-		return ResponseError.builder().errorCode(ex.getExceptionCode()).message(ex.getMessage())
+		return ResponseError.builder().сode(ex.getExceptionCode()).message(ex.getMessage())
 				.url(request.getRequestURI()).build();
 	}
 
@@ -47,7 +47,7 @@ public class ExceptionsHandler {
 	@ExceptionHandler(Exception.class)
 	public ResponseError handleUnknown(HttpServletRequest request, Exception ex) {
 		log.error("Исключение при вызове метода: " + request.getRequestURI() + ". " + ex.getMessage(), ex);
-		return ResponseError.builder().errorCode(-1).message("Неизвестное исключение. Сообщение: " + ex.getMessage())
+		return ResponseError.builder().сode(-1).message("Неизвестное исключение. Сообщение: " + ex.getMessage())
 				.url(request.getRequestURI()).build();
 	}
 }

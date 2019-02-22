@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ru.abcd.example.common;
+package ru.abcd.example;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,0 +1,13 @@
+schema {
+  query: DirectorOfDepartmentGraphQlQueryHandler
+  
+}
+
+type DirectorOfDepartmentGraphQlQueryHandler {
+    findByNumber(number: Int!): School
+}
+
+
+type School {
+    number: Int
+}

@@ -1,6 +1,7 @@
 package ru.abcd.example.controllers.schooldirector;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -17,6 +18,7 @@ import ru.abcd.example.common.aop.AnnotationLogMethodArround;
 import ru.abcd.example.common.exceptions.IllegalParameterException;
 import ru.abcd.example.common.exceptions.UpdateException;
 import ru.abcd.example.controllers.ResponseError;
+import ru.abcd.example.notification.TeacherDismissEvent;
 
 /**
  * Контроллер доступа к функционалу директора школы
@@ -36,6 +38,9 @@ class DirectorOfSchool implements ru.abcd.example.interactor.schooldirector.Dire
 	@Autowired
 	private ru.abcd.example.interactor.schooldirector.DirectorOfSchool service;
 
+	@Autowired
+	private ApplicationEventPublisher eventPublisher;
+	
 	@AnnotationLogMethodArround
 	@ApiOperation("Увольнение учителя")
 	@PutMapping("/teachers/dismiss")
@@ -43,6 +48,8 @@ class DirectorOfSchool implements ru.abcd.example.interactor.schooldirector.Dire
 	public void dismissTeacher(@RequestParam(value = "school_number", required = true) int schoolNumber,
 			@RequestParam(value = "teacher_id", required = true) int id) throws UpdateException {
 		service.dismissTeacher(schoolNumber, id);
+		//событие об увольнении.
+		eventPublisher.publishEvent(new TeacherDismissEvent(this, id));
 	}
 
 	@AnnotationLogMethodArround

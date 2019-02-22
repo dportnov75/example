@@ -1,6 +1,7 @@
 package ru.abcd.example.interactor.departmentdirector;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
@@ -33,7 +34,7 @@ class DirectorOfDepartmentActor implements DirectorOfDepartment {
 	 * @return
 	 */
 	@Lookup
-	public SchoolAdapter getSchoolAdapter() {
+	protected SchoolAdapter getSchoolAdapter() {
 		return null;
 	}
 
@@ -47,7 +48,6 @@ class DirectorOfDepartmentActor implements DirectorOfDepartment {
 	public School createSchool(int number) throws IllegalParameterException, CreateException {
 		Precondition.ifTrueThrow(number < 1 || number > 9999, "Номер школы должен лежать в диапазоне 1-9999",
 				ExceptionCodes.INCORRECT_PARAMETER, IllegalParameterException.class);
-		System.out.println("------------" + getSchoolAdapter());
 		return getSchoolAdapter().add(School.builder().number(number).build());
 	}
 
@@ -74,6 +74,11 @@ class DirectorOfDepartmentActor implements DirectorOfDepartment {
 				IllegalParameterException.class);
 		// Какие-то другие проверки....
 		return adapterStudent.add(student);
+	}
+
+	@Override
+	public Optional<School> findByNumber(int id) {
+		return getSchoolAdapter().findByNumber(id);
 	}
 
 }

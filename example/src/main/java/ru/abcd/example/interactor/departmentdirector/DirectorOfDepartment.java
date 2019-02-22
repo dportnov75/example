@@ -1,6 +1,7 @@
 package ru.abcd.example.interactor.departmentdirector;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import ru.abcd.example.common.exceptions.CreateException;
 import ru.abcd.example.common.exceptions.IllegalParameterException;
@@ -50,7 +51,7 @@ public interface DirectorOfDepartment {
 	public Student createStudent(Student student) throws IllegalParameterException, CreateException;
 
 	/**
-	 * Метод постраницно возвращает все школы
+	 * Метод постранично возвращает все школы
 	 * 
 	 * @param page        Страница
 	 * @param recordCount Кол-во записей на странице
@@ -58,5 +59,13 @@ public interface DirectorOfDepartment {
 	 * @throws IllegalParameterException Отрицательное значение любого параметра
 	 */
 	public Collection<School> getAll(int page, int recordCount) throws IllegalParameterException;
+
+	/**
+	 * Метод возвращает школу по идентификатору
+	 * 
+	 * @param id Идентификатор
+	 * @return Школа, или {@code Optional#empty()}, если не найденна
+	 */
+	public Optional<School> findByNumber(int id);
 
 }

@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.AccessLevel;
@@ -42,7 +41,6 @@ abstract class Person {
 	 */
 	@Column(length = 32, nullable = false)
 	@Size(min = 1, max = 32)
-	@Pattern(regexp = "/^[а-я ,.'-]+$/i")
 	String firstName;
 
 	/**
@@ -50,7 +48,6 @@ abstract class Person {
 	 */
 	@Column(length = 32, nullable = false)
 	@Size(min = 1, max = 32)
-	@Pattern(regexp = "/^[а-я ,.'-]+$/i")
 	String secondName;
 
 	/**

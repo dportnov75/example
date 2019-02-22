@@ -1,6 +1,7 @@
 package ru.abcd.example.interactor.schooldirector;
 
 import org.springframework.beans.factory.annotation.Lookup;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,10 +19,11 @@ import ru.abcd.example.interactor.SchoolAdapter;
  */
 @Service
 @Transactional
+@Primary
 class DirectorOfSchoolActor implements DirectorOfSchool {
 
 	@Lookup
-	private SchoolAdapter getSchoolAdapter() {
+	protected SchoolAdapter getSchoolAdapter() {
 		// Предполагается, что этот адаптер используется крайне редко
 		return null;
 	}

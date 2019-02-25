@@ -71,7 +71,7 @@ public class CloudStreamPublisher {
 	 */
 	@EventListener
 	public void onTeacherDismiss(TeacherDismissEvent evt) {
-		//Метки для 
+		//Метки для zipkin
 		span.tag("cloud.stream.start", "старт");
 		EventRepresentation evtRep = EventRepresentation.create(evt);
 		messageChannel.output().send(MessageBuilder.withPayload(evtRep).build());

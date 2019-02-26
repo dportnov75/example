@@ -10,4 +10,5 @@ type DirectorOfDepartmentGraphQlQueryHandler {
 
 type School {
     number: Int
+    phones: [String]
 }

@@ -18,7 +18,7 @@ public interface DirectorOfSchool {
 	 * @param id           Идентификатор учителя
 	 * @throws UpdateException Невозможно выполнить операцию
 	 */
-	public void dismissTeacher(int schoolNumber, int id) throws UpdateException;
+	public void dismissTeacher(int schoolNumber, int id) throws IllegalParameterException, UpdateException;
 
 	/**
 	 * Принимает на работу нового учителя

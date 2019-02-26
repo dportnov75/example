@@ -24,10 +24,17 @@
 		<mapstruct.version>1.3.0.Final</mapstruct.version>
 		<swagger.version>2.9.2</swagger.version>
 		<spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+		<m2e.apt.activation>jdt_apt</m2e.apt.activation>
 	</properties>
 
 	<dependencies>
 
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+		</dependency>
+		
 		<!-- graphql -->
 		<dependency>
 			<groupId>com.graphql-java</groupId>
@@ -148,7 +155,7 @@
 	<build>
 		<plugins>
 
-			<!-- для  mapstruct & lombok -->
+			<!-- для mapstruct & lombok -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>

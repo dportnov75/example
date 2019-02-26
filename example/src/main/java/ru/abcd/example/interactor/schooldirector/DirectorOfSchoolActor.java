@@ -29,7 +29,7 @@ class DirectorOfSchoolActor implements DirectorOfSchool {
 	
 
 	@Override
-	public void dismissTeacher(int schoolNumber, int id) throws UpdateException {
+	public void dismissTeacher(int schoolNumber, int id) throws IllegalParameterException, UpdateException {
 		Precondition.ifTrueThrow(schoolNumber < 1 || schoolNumber > 9999,
 				"Недопустимый номер школы. Должен лежать в пределах 1-9999", ExceptionCodes.INCORRECT_PARAMETER,
 				IllegalParameterException.class);

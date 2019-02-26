@@ -22,6 +22,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.Singular;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
@@ -55,11 +56,11 @@ class School {
 	/**
 	 * Коллекция телефонов школы
 	 */
-	@Builder.Default
+	@Singular("phone") 
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "school_phones", joinColumns = @JoinColumn(name = "school_id"))
 	@Column(name = "phone", length = 12, nullable = false, unique = true)
-	Set<@Pattern(regexp = "^((\\+7|7|8)+([0-9]){10})$") String> phones = new HashSet<>();
+	Set<@Pattern(regexp = "^((\\+7|7|8)+([0-9]){10})$") String> phones;
 
 	/**
 	 * Список преподавателей школы

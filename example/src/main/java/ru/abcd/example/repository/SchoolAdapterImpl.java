@@ -71,7 +71,7 @@ class SchoolAdapterImpl implements SchoolAdapter {
 	}
 
 	@Override
-	public void deleteTeacher(int schoolNumber, int teacherId) {
+	public void removeTeacher(int schoolNumber, int teacherId) {
 		Optional<ru.abcd.example.repository.School> entity = repository.findById(schoolNumber);
 		if (entity.isPresent()) {
 			entity.get().getTeachers().removeIf(filter -> filter.getId() == teacherId);

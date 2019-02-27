@@ -53,7 +53,7 @@ public interface SchoolAdapter {
 	 * @param schoolNumber Номер школы
 	 * @param teacherId Идентификатор учителя
 	 */
-	public void deleteTeacher(int schoolNumber, int teacherId);
+	public void removeTeacher(int schoolNumber, int teacherId);
 	
 	/**
 	 * Метод добавляет учителя в школу

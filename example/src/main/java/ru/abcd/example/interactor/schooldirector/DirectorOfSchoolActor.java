@@ -1,5 +1,6 @@
 package ru.abcd.example.interactor.schooldirector;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,7 +22,7 @@ import ru.abcd.example.interactor.SchoolAdapter;
 class DirectorOfSchoolActor implements DirectorOfSchool {
 
 	@Lookup
-	protected SchoolAdapter getSchoolAdapter() {
+	public SchoolAdapter getSchoolAdapter() {
 		// Предполагается, что этот адаптер используется крайне редко
 		return null;
 	}
@@ -33,7 +34,7 @@ class DirectorOfSchoolActor implements DirectorOfSchool {
 		Precondition.ifTrueThrow(schoolNumber < 1 || schoolNumber > 9999,
 				"Недопустимый номер школы. Должен лежать в пределах 1-9999", ExceptionCodes.INCORRECT_PARAMETER,
 				IllegalParameterException.class);
-		getSchoolAdapter().deleteTeacher(schoolNumber, id);
+		getSchoolAdapter().removeTeacher(schoolNumber, id);
 	}
 
 	@Override

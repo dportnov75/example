@@ -14,6 +14,7 @@ import ru.abcd.example.common.exceptions.CreateException;
 import ru.abcd.example.common.exceptions.ExceptionCodes;
 import ru.abcd.example.common.exceptions.IllegalParameterException;
 import ru.abcd.example.common.exceptions.Precondition;
+import ru.abcd.example.common.exceptions.UpdateException;
 import ru.abcd.example.interactor.School;
 import ru.abcd.example.interactor.SchoolAdapter;
 import ru.abcd.example.interactor.Teacher;
@@ -61,7 +62,8 @@ class SchoolAdapterImpl implements SchoolAdapter {
 
 	@Override
 	public Collection<Teacher> getSchollTeachers(int number) {
-		return null;
+		//TODO Убрать заглушку
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -71,11 +73,16 @@ class SchoolAdapterImpl implements SchoolAdapter {
 	}
 
 	@Override
-	public void removeTeacher(int schoolNumber, int teacherId) {
+	public void removeTeacher(int schoolNumber, int teacherId) throws UpdateException {
 		Optional<ru.abcd.example.repository.School> entity = repository.findById(schoolNumber);
 		if (entity.isPresent()) {
 			entity.get().getTeachers().removeIf(filter -> filter.getId() == teacherId);
-			repository.save(entity.get());
+			try {
+				repository.save(entity.get());
+			} catch (Exception e) {
+				throw new UpdateException("Ошибка при изменении. Сообщение - " + e.getMessage(),
+						ExceptionCodes.REPOSITORY_SAVE_ERROR, e);
+			}
 		}
 	}
 

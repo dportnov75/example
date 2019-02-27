@@ -5,10 +5,10 @@ import java.util.Optional;
 
 import ru.abcd.example.common.exceptions.CreateException;
 import ru.abcd.example.common.exceptions.IllegalParameterException;
+import ru.abcd.example.common.exceptions.UpdateException;
 
 /**
- * Интерфейс доступа к сущностям 
- * {@link ru.abcd.example.interactor.School}
+ * Интерфейс доступа к сущностям {@link ru.abcd.example.interactor.School}
  * 
  * @author dmitry
  *
@@ -31,34 +31,39 @@ public interface SchoolAdapter {
 	 * @throws CreateException           Не удалось сохранить в репозитории
 	 */
 	public School add(School school) throws IllegalParameterException, CreateException;
-	
+
 	/**
 	 * Метод возвращает коллекцию учителей школы
+	 * 
 	 * @param number
 	 * @return
 	 */
-	public Collection<Teacher> getSchollTeachers(int number); 
-	
+	public Collection<Teacher> getSchollTeachers(int number);
+
 	/**
 	 * Метод постраницно возвращает все школы
-	 * @param page Страница
+	 * 
+	 * @param page        Страница
 	 * @param recordCount Кол-во записей на странице
 	 * @return Список всех школ
 	 * @throws IllegalParameterException Отрицательное значение любого параметра
 	 */
-	public Collection<School> getAll(int page, int recordCount) throws IllegalParameterException ;
-	
+	public Collection<School> getAll(int page, int recordCount) throws IllegalParameterException;
+
 	/**
 	 * метод удаляет учителя из школы
+	 * 
 	 * @param schoolNumber Номер школы
-	 * @param teacherId Идентификатор учителя
+	 * @param teacherId    Идентификатор учителя
+	 * @throws UpdateException
 	 */
-	public void removeTeacher(int schoolNumber, int teacherId);
-	
+	public void removeTeacher(int schoolNumber, int teacherId) throws UpdateException;
+
 	/**
 	 * Метод добавляет учителя в школу
+	 * 
 	 * @param schoolNumber Номер школы
-	 * @param teacherId Идентификатор учителя
+	 * @param teacherId    Идентификатор учителя
 	 */
 	public void addTeacher(int schoolNumber, int teacherId);
 }

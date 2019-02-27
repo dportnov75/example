@@ -57,6 +57,9 @@ public class TeacherAdapterTest {
 		MockitoAnnotations.initMocks(this);
 	}
 
+	/**
+	 * Добавление учителя
+	 */
 	@Test
 	public void test_add() {
 		ru.abcd.example.repository.Teacher t1 = ru.abcd.example.repository.Teacher.builder().firstName("1")
@@ -70,6 +73,9 @@ public class TeacherAdapterTest {
 		assertThat(t2.getSecondName(), equalTo("2"));
 	}
 
+	/**
+	 * Неожиданное исключение из репозитория
+	 */
 	@Test
 	public void test_repository_exception_handle() {
 		exception.expect(CreateException.class);
@@ -81,6 +87,9 @@ public class TeacherAdapterTest {
 		adapter.add(Teacher.builder().firstName("1").secondName("1").build());
 	}
 
+	/**
+	 * Передача null
+	 */
 	@Test
 	public void test_null_parameter_exception() {
 		exception.expect(IllegalParameterException.class);

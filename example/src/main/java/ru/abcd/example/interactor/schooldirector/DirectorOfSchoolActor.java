@@ -25,15 +25,20 @@ class DirectorOfSchoolActor implements DirectorOfSchool {
 		// Предполагается, что этот адаптер используется крайне редко
 		return null;
 	}
-	
-	
 
 	@Override
 	public void dismissTeacher(int schoolNumber, int id) throws IllegalParameterException, UpdateException {
 		Precondition.ifTrueThrow(schoolNumber < 1 || schoolNumber > 9999,
 				"Недопустимый номер школы. Должен лежать в пределах 1-9999", ExceptionCodes.INCORRECT_PARAMETER,
 				IllegalParameterException.class);
-		getSchoolAdapter().removeTeacher(schoolNumber, id);
+		try {
+			getSchoolAdapter().removeTeacher(schoolNumber, id);
+		} catch (UpdateException e) {
+			throw e;
+		} catch (Exception e) {
+			throw new UpdateException("Ошибка при увольнении учителя. Сообщение - " + e.getMessage(),
+					ExceptionCodes.REPOSITORY_SAVE_ERROR, e);
+		}
 	}
 
 	@Override

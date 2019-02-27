@@ -25,6 +25,9 @@ public class SchoolsRepositoryTest {
 	@Autowired
 	private SchoolsRepository repository;
 	
+	/**
+	 * сохранение данных
+	 */
 	@Test
 	public void test_save() {
 		String phone1 = "81112223344";

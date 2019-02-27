@@ -1,4 +1,4 @@
-package ru.abcd.example.controllers.schooldirector;
+package ru.abcd.example.interactor.schooldirector.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

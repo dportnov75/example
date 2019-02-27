@@ -3,4 +3,4 @@
  * @author dmitry
  *
  */
-package ru.abcd.example.controllers.schooldirector;
+package ru.abcd.example.interactor.schooldirector.controller;

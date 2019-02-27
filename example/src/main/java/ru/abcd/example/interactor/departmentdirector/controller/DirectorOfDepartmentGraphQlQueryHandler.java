@@ -1,4 +1,4 @@
-package ru.abcd.example.controllers.departmentdirector;
+package ru.abcd.example.interactor.departmentdirector.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

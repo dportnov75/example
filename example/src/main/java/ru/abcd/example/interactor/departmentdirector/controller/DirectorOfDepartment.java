@@ -1,4 +1,4 @@
-package ru.abcd.example.controllers.departmentdirector;
+package ru.abcd.example.interactor.departmentdirector.controller;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;

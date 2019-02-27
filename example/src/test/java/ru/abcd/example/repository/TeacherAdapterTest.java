@@ -53,7 +53,7 @@ public class TeacherAdapterTest {
 	private TeachersRepository repository;
 
 	@Before
-	public void setup() {
+	public void befor() {
 		MockitoAnnotations.initMocks(this);
 	}
 

@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import ru.abcd.example.common.aop.AnnotationCatchUnhandledException;
 import ru.abcd.example.common.exceptions.CreateException;
 import ru.abcd.example.common.exceptions.ExceptionCodes;
 import ru.abcd.example.common.exceptions.IllegalParameterException;
@@ -45,6 +46,7 @@ class SchoolAdapterImpl implements SchoolAdapter {
 		return school.isPresent() ? Optional.of(mapper.map(school.get())) : Optional.empty();
 	}
 
+	@AnnotationCatchUnhandledException(value = CreateException.class, code = ExceptionCodes.REPOSITORY_SAVE_ERROR, message = "Ошибка при создании школы. Cообщение - ")
 	@Override
 	public School add(School school) throws IllegalParameterException, CreateException {
 		Precondition.ifTrueThrow(school == null, "Не задана школа", ExceptionCodes.INCORRECT_PARAMETER,
@@ -52,17 +54,12 @@ class SchoolAdapterImpl implements SchoolAdapter {
 		Precondition.ifTrueThrow(repository.findById(school.getNumber()).isPresent(),
 				"Уже есть школа с номером " + school.getNumber(), ExceptionCodes.REPOSITORY_SAVE_ERROR,
 				CreateException.class);
-		try {
-			return mapper.map(repository.save(mapper.map(school)));
-		} catch (Exception e) {
-			throw new CreateException("Ошибка при создании школы. Сообщение - " + e.getMessage(),
-					ExceptionCodes.REPOSITORY_SAVE_ERROR, e);
-		}
+		return mapper.map(repository.save(mapper.map(school)));
 	}
 
 	@Override
 	public Collection<Teacher> getSchollTeachers(int number) {
-		//TODO Убрать заглушку
+		// TODO Убрать заглушку
 		throw new UnsupportedOperationException();
 	}
 
@@ -72,21 +69,18 @@ class SchoolAdapterImpl implements SchoolAdapter {
 				.collect(Collectors.toList());
 	}
 
+	@AnnotationCatchUnhandledException(value = UpdateException.class, code = ExceptionCodes.REPOSITORY_SAVE_ERROR, message = "Ошибка при изменении. Cообщение - ")
 	@Override
 	public void removeTeacher(int schoolNumber, int teacherId) throws UpdateException {
 		Optional<ru.abcd.example.repository.School> entity = repository.findById(schoolNumber);
 		if (entity.isPresent()) {
 			entity.get().getTeachers().removeIf(filter -> filter.getId() == teacherId);
-			try {
-				repository.save(entity.get());
-			} catch (Exception e) {
-				throw new UpdateException("Ошибка при изменении. Сообщение - " + e.getMessage(),
-						ExceptionCodes.REPOSITORY_SAVE_ERROR, e);
-			}
+			repository.save(entity.get());
 		}
 	}
 
 	@Override
+	@AnnotationCatchUnhandledException(value = CreateException.class, code = ExceptionCodes.REPOSITORY_SAVE_ERROR, message = "Ошибка при добавлении учителя в школу. Cообщение - ")
 	public void addTeacher(int schoolNumber, int teacherId) {
 		Optional<ru.abcd.example.repository.School> entitySchool = repository.findById(schoolNumber);
 		Optional<ru.abcd.example.repository.Teacher> entityTeacher = repositoryTeacher.findById(teacherId);

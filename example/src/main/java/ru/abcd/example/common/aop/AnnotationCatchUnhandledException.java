@@ -19,7 +19,7 @@ import ru.abcd.example.common.exceptions.BaseException;
  */
 @Retention(RUNTIME)
 @Target(METHOD)
-public @interface AnnotationCatchException {
+public @interface AnnotationCatchUnhandledException {
 
 	/**
 	 * Класс исключения, экземпляр которого надо создать

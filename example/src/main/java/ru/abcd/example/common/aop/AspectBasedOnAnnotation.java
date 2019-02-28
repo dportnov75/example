@@ -49,27 +49,27 @@ class AspectBasedOnAnnotation {
 
 	/**
 	 * Точка среза для методов, которые отмечены аннотацией
-	 * {@link AnnotationCatchException}
+	 * {@link AnnotationCatchUnhandledException}
 	 * 
 	 * @param a Аннотация
 	 */
 	@Pointcut("@annotation(a)")
-	private void pointCut(AnnotationCatchException a) {
+	private void pointCut(AnnotationCatchUnhandledException a) {
 	}
 
 	/**
 	 * Будет вызван после генерации исключения в точке среза
-	 * {@link #pointCut(AnnotationCatchException)}. <br>
+	 * {@link #pointCut(AnnotationCatchUnhandledException)}. <br>
 	 * Метод заменит полученное исключение на экземпляр {@link BaseException}, класс
 	 * которого прописан в параметре аннотации
-	 * {@link AnnotationCatchException#value()}
+	 * {@link AnnotationCatchUnhandledException#value()}
 	 * 
 	 * @param e          Исключение
 	 * @param annotation Экземпляр аннотации
-	 * @throws BaseException
+	 * @throws Throwable
 	 */
 	@AfterThrowing(pointcut = "pointCut(annotation)", throwing = "e")
-	public void pointCutAfterThrowing(Throwable e, AnnotationCatchException annotation) throws BaseException {
+	public void pointCutAfterThrowing(Throwable e, AnnotationCatchUnhandledException annotation) throws Throwable {
 		if (!(e instanceof BaseException)) {
 			// подменяем объект исключения
 			try {
@@ -83,6 +83,7 @@ class AspectBasedOnAnnotation {
 			}
 
 		}
+		else throw e;
 	}
 
 }

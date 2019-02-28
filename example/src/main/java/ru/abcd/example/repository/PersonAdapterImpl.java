@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import ru.abcd.example.common.aop.AnnotationCatchException;
+import ru.abcd.example.common.aop.AnnotationCatchUnhandledException;
 import ru.abcd.example.common.exceptions.CreateException;
 import ru.abcd.example.common.exceptions.ExceptionCodes;
 import ru.abcd.example.common.exceptions.IllegalParameterException;
@@ -37,7 +37,7 @@ abstract class PersonAdapterImpl<Dto extends Person, Entity extends ru.abcd.exam
 	}
 
 	@Override
-	@AnnotationCatchException(value = CreateException.class, code = ExceptionCodes.REPOSITORY_SAVE_ERROR, message = "Ошибка при создании персоны. Cообщение - ")
+	@AnnotationCatchUnhandledException(value = CreateException.class, code = ExceptionCodes.REPOSITORY_SAVE_ERROR, message = "Ошибка при создании персоны. Cообщение - ")
 	public Dto add(Dto person) throws IllegalParameterException, CreateException {
 		Precondition.ifTrueThrow(person == null, "Задайте персону", ExceptionCodes.INCORRECT_PARAMETER,
 				IllegalParameterException.class);
@@ -46,6 +46,7 @@ abstract class PersonAdapterImpl<Dto extends Person, Entity extends ru.abcd.exam
 	}
 
 	@Override
+	@AnnotationCatchUnhandledException(value = CreateException.class, code = ExceptionCodes.REPOSITORY_SAVE_ERROR, message = "Ошибка при редактировании персоны. Cообщение - ")
 	public void update(Dto person) throws IllegalParameterException, UpdateException {
 		Precondition.ifTrueThrow(person == null, "Задайте персону", ExceptionCodes.INCORRECT_PARAMETER,
 				IllegalParameterException.class);
@@ -53,12 +54,7 @@ abstract class PersonAdapterImpl<Dto extends Person, Entity extends ru.abcd.exam
 				"Ошибка редактирования. в системе нет персоны с идентификаторм -" + person.getId(),
 				ExceptionCodes.REPOSITORY_SAVE_ERROR, UpdateException.class);
 		// Какие-то еще проверки
-		try {
-			mapper.map(repository.save(mapper.map(person)));
-		} catch (Exception e) {
-			throw new CreateException("Ошибка при создании персоны. Cообщение - " + e.getMessage(),
-					ExceptionCodes.REPOSITORY_SAVE_ERROR, e);
-		}
+		mapper.map(repository.save(mapper.map(person)));
 	}
 
 }

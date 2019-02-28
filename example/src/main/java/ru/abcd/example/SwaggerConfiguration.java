@@ -28,7 +28,7 @@ public class SwaggerConfiguration {
 	@Bean
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2).useDefaultResponseMessages(false).groupName("Все интерфейсы примера")
-				.apiInfo(apiInfo()).select().apis(RequestHandlerSelectors.basePackage("ru.abcd.example.controllers"))
+				.apiInfo(apiInfo()).select().apis(RequestHandlerSelectors.basePackage("ru.abcd.example"))
 				.paths(PathSelectors.any()).build();
 
 	}

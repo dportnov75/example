@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Конфигурация Spring Cloud Stream. Загружается только если прописано
- * подключение к Rabbit
+ * подключение к RabbitMQ
  * 
  * @author dmitry
  *

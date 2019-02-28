@@ -21,7 +21,6 @@ import org.mockito.Spy;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import ru.abcd.example.common.exceptions.CreateException;
 import ru.abcd.example.common.exceptions.ExceptionCodes;
 import ru.abcd.example.common.exceptions.IllegalParameterException;
 import ru.abcd.example.interactor.Teacher;
@@ -73,19 +72,7 @@ public class TeacherAdapterTest {
 		assertThat(t2.getSecondName(), equalTo("2"));
 	}
 
-	/**
-	 * Неожиданное исключение из репозитория
-	 */
-	@Test
-	public void test_repository_exception_handle() {
-		exception.expect(CreateException.class);
-		exception.expect(hasProperty("exceptionCode", is(ExceptionCodes.REPOSITORY_SAVE_ERROR)));
-		// Генерим неожиданное исключение
-		Mockito.when(
-				repository.save(ru.abcd.example.repository.Teacher.builder().firstName("1").secondName("1").build()))
-				.thenThrow(new RuntimeException("qwer"));
-		adapter.add(Teacher.builder().firstName("1").secondName("1").build());
-	}
+	
 
 	/**
 	 * Передача null

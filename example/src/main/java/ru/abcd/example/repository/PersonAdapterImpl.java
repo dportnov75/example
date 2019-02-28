@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import ru.abcd.example.common.aop.AnnotationCatchException;
 import ru.abcd.example.common.exceptions.CreateException;
 import ru.abcd.example.common.exceptions.ExceptionCodes;
 import ru.abcd.example.common.exceptions.IllegalParameterException;
@@ -36,16 +37,12 @@ abstract class PersonAdapterImpl<Dto extends Person, Entity extends ru.abcd.exam
 	}
 
 	@Override
+	@AnnotationCatchException(value = CreateException.class, code = ExceptionCodes.REPOSITORY_SAVE_ERROR, message = "Ошибка при создании персоны. Cообщение - ")
 	public Dto add(Dto person) throws IllegalParameterException, CreateException {
 		Precondition.ifTrueThrow(person == null, "Задайте персону", ExceptionCodes.INCORRECT_PARAMETER,
 				IllegalParameterException.class);
 		// Какие-то еще проверки
-		try {
-			return mapper.map(repository.save(mapper.map(person)));
-		} catch (Exception e) {
-			throw new CreateException("Ошибка при создании персоны. Cообщение - " + e.getMessage(),
-					ExceptionCodes.REPOSITORY_SAVE_ERROR, e);
-		}
+		return mapper.map(repository.save(mapper.map(person)));
 	}
 
 	@Override

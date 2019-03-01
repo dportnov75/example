@@ -18,7 +18,7 @@ import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
 
 /**
- * Абстракный класс, описывающий персону
+ * Абстрактный класс, описывающий персону
  * 
  * @author dmitry
  *

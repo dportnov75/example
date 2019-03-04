@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import lombok.extern.slf4j.Slf4j;
 import ru.abcd.example.common.exceptions.BaseException;
 
 /**
@@ -23,7 +22,6 @@ import ru.abcd.example.common.exceptions.BaseException;
  */
 @Aspect
 @Service
-@Slf4j
 class AspectBasedOnAnnotation {
 
 	/**
@@ -77,7 +75,7 @@ class AspectBasedOnAnnotation {
 						.newInstance(annotation.message(), annotation.code(), e);
 			} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
 					| InvocationTargetException | NoSuchMethodException | SecurityException ex) {
-				log.error("Ошибка при создании экземпляра исключения. Заданный класс - " + annotation.value(), ex);
+				//log.warn("Ошибка при создании экземпляра исключения. Заданный класс - " + annotation.value(), ex);
 				throw new BaseException("Не удалось создать требуемый экземпляр исключения. Генерим базовое. "
 						+ annotation.message() + ". Сообщение - " + e.getMessage(), annotation.code(), e);
 			}

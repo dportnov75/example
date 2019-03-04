@@ -19,9 +19,5 @@ import org.springframework.beans.factory.annotation.Qualifier;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Decorator {
 	
-	/**
-	 * Имя bean-а
-	 * @return
-	 */
-	String  value() default "";
+
 }

@@ -18,7 +18,7 @@ import ru.abcd.example.interactor.SchoolAdapter;
  */
 @Service
 @Transactional
-class DirectorOfSchoolActor implements DirectorOfSchool {
+class DirectorOfSchoolImpl implements DirectorOfSchool {
 
 	@Lookup
 	public SchoolAdapter getSchoolAdapter() {

@@ -27,7 +27,7 @@ import ru.abcd.example.interactor.Teacher;
  */
 @Service
 @Transactional
-class DirectorOfDepartmentActor implements DirectorOfDepartment {
+class DirectorOfDepartmentImpl implements DirectorOfDepartment {
 
 	/**
 	 * Возвращает каждый раз новый экземпляр

@@ -27,7 +27,7 @@ import ru.abcd.example.interactor.SchoolAdapter;
  *
  */
 @RunWith(SpringRunner.class)
-public class DirectorOfSchoolActorTest {
+public class DirectorOfSchoolTest {
 
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
@@ -36,7 +36,7 @@ public class DirectorOfSchoolActorTest {
 	private SchoolAdapter adapter;
 
 	@Spy
-	private DirectorOfSchoolActor service;
+	private DirectorOfSchoolImpl service;
 
 	@Before
 	public void befor() {

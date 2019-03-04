@@ -9,7 +9,7 @@ import ru.abcd.example.common.exceptions.UpdateException;
 import ru.abcd.example.notification.TeacherDismissEvent;
 
 /**
- * Декоратор {@link DirectorOfSchoolActor}. <br>
+ * Декоратор {@link DirectorOfSchoolImpl}. <br>
  * Для уменьшения связанности и соблюдения принципа L из SOLID, по-хорошему,
  * надо бы унаследоваться от {@link DirectorOfSchool}
  * 
@@ -18,7 +18,7 @@ import ru.abcd.example.notification.TeacherDismissEvent;
  */
 @Decorator
 @Service
-public class DirectorOfSchoolDecorator extends DirectorOfSchoolActor {
+public class DirectorOfSchoolDecorator extends DirectorOfSchoolImpl {
 
 	@Autowired
 	private ApplicationEventPublisher publisher;

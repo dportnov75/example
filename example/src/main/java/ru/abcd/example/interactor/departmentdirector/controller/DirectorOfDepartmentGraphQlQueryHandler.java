@@ -10,10 +10,14 @@ import ru.abcd.example.interactor.departmentdirector.DirectorOfDepartment;
 
 /**
  * Пример сервиса обрабатывающего запросы GraphQL<br>
- * В браузере вызвать <a href="http://localhost:9999/example/graphiql">
- * GraphiQl</a>
+ * Вызвать <a href="http://localhost:9999/example/graphiql"> GraphiQl</a>
  * <p>
- * Выполнить - {@code { findByNumber(number: 1) { number } }}
+ * Выполнить - {@code {
+  	findByNumber(number: 2) {
+    	number
+    	phones } 
+    	}
+    }
  * </p>
  * <p>
  * Файл с описанием и привязкой находится в {@code /resources/school.graphsqls}

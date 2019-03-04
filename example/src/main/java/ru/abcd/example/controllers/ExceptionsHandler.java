@@ -16,7 +16,7 @@ import ru.abcd.example.common.exceptions.BaseException;
  * @author dmitry
  *
  */
-@RestControllerAdvice(basePackages = { "ru.abcd.example.controllers" })
+@RestControllerAdvice(basePackages = { "ru.abcd.example.interactor" })
 @Slf4j
 public class ExceptionsHandler {
 

@@ -3,6 +3,7 @@ package ru.abcd.example.common.exceptions;
 import java.lang.reflect.InvocationTargetException;
 
 
+
 /**
  * Класс предоставляет методы для проверки условий
  * 
@@ -35,7 +36,7 @@ public final class Precondition {
 	 */
 	private static <T extends BaseException> void checkCondition(boolean condition, final String errorMessage,
 			int exceptionCode, final Class<T> exceptionClass, boolean conditionTrueThanThrow) throws T {
-		if ((conditionTrueThanThrow && condition) || (!conditionTrueThanThrow && !condition)) {
+		if ((conditionTrueThanThrow & condition) || (!conditionTrueThanThrow & !condition)) {
 			try {
 				T exception = exceptionClass.getConstructor(String.class, int.class).newInstance(errorMessage,
 						exceptionCode);
@@ -67,6 +68,7 @@ public final class Precondition {
 	public static <T extends BaseException> void ifFalseThrow(final boolean condition, final String errorMessage,
 			final int exceptionCode, final Class<T> exceptionClass) throws T {
 		checkCondition(condition, errorMessage, exceptionCode, exceptionClass, false);
+		
 	}
 
 	/**

@@ -76,6 +76,7 @@ class DirectorOfDepartmentImpl implements DirectorOfDepartment {
 		return adapterStudent.add(student);
 	}
 
+	@Transactional(propagation = Propagation.SUPPORTS)
 	@Override
 	public Optional<School> findByNumber(int id) {
 		return getSchoolAdapter().findByNumber(id);

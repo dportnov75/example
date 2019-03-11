@@ -14,4 +14,4 @@
 
 Покрытие тестами не 100%, даже и не 5%
 
-Стэк: Spring Boot, GraphQL, Lombok, MapStruct, Spring Data, Spring Cloud Stream, AspectJ 
+Стэк: Spring Boot, GraphQL, Lombok, MapStruct, Spring Data, Spring Cloud Stream, AspectJ, Hateoas, Zipkin 

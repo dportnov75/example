@@ -25,6 +25,7 @@ public class SchoolsRepositoryTest {
 	@Autowired
 	private SchoolsRepository repository;
 	
+	
 	/**
 	 * сохранение данных
 	 */
